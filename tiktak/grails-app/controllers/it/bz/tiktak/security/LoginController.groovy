@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 class LoginController {
 
-	/*
+	/**
 	 * Dependency injection for the authenticationTrustResolver.
 	 */
 	def authenticationTrustResolver
