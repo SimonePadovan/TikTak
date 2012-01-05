@@ -61,15 +61,15 @@
 			}
 
 			@media screen and (max-width: 480px) {
-				#menu {
+				#page-body {
 					display: none;
 				}
 
-				#page-body {
+				#menu {
 					margin: 0 1em 1em;
 				}
 
-				#page-body h1 {
+				#menu h1 {
 					margin-top: 0;
 				}
 			}
@@ -78,16 +78,16 @@
 	<body>
 		<a href="#menu" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div id="menu" role="menu">
-			<h1>Gestione</h1>
+			<h1><g:message code="menu.management" default="Management" /></h1>
 			<ul>
 			  <li class="controller"><g:link controller="MyTracking">${message(code: 'myTracking.label', default: 'My trackings')}</g:link></li>
 			  <li class="controller"><g:link controller="Tracking">${message(code: 'tracking.label', default: 'Tracking')}</g:link></li>			  
 			</ul>
 			<br/>
-			<h1>Tabelle di base</h1>
+			<h1><g:message code="menu.basetables" default="Base tables" /></h1>
 			<ul>
-			   <li class="controller"><g:link controller="Activity">${message(code: 'activity.label', default: 'Activity')}</g:link></li>
 			   <li class="controller"><g:link controller="Service">${message(code: 'service.label', default: 'Service')}</g:link></li>
+			   <li class="controller"><g:link controller="Activity">${message(code: 'activity.label', default: 'Activity')}</g:link></li>
 			   <li class="controller"><g:link controller="Project">${message(code: 'project.label', default: 'Project')}</g:link></li>
 			   <li class="controller"><g:link controller="Person">${message(code: 'person.label', default: 'Person')}</g:link></li>
 			   <li class="controller"><g:link controller="ProjectPerson">${message(code: 'projectPerson.label', default: 'Project per Person')}</g:link></li>
