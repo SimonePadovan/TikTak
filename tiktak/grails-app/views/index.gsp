@@ -4,7 +4,7 @@
 		<meta name="layout" content="main"/>
 		<title>Tik-Tak</title>
 		<style type="text/css" media="screen">
-			#status {
+			#menu {
 				background-color: #eee;
 				border: .2em solid #fff;
 				margin: 2em 2em 1em;
@@ -19,18 +19,18 @@
 				border-radius: 0.6em;
 			}
 
-			.ie6 #status {
+			.ie6 #menu {
 				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
 			}
 
-			#status ul {
+			#menu ul {
 				font-size: 1.1em;
 				list-style-type: none;
 				margin-bottom: 0.6em;
 				padding: 0;
 			}
 
-			#status h1 {
+			#menu h1 {
 			    color: black;
 				text-transform: uppercase;
 				font-size: 1.3em;
@@ -61,7 +61,7 @@
 			}
 
 			@media screen and (max-width: 480px) {
-				#status {
+				#menu {
 					display: none;
 				}
 
@@ -76,8 +76,8 @@
 		</style>
 	</head>
 	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="menu">
+		<a href="#menu" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+		<div id="menu" role="menu">
 			<h1>Gestione</h1>
 			<ul>
 			  <li class="controller"><g:link controller="MyTracking">${message(code: 'myTracking.label', default: 'My trackings')}</g:link></li>

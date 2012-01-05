@@ -26,6 +26,10 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
+			
+			dialect = org.hibernate.dialect.MySQLInnoDBDialect
+			driverClassName = 'com.mysql.jdbc.Driver'
+			
             url = "jdbc:h2:prodDb;MVCC=TRUE"
             pooled = true
             properties {

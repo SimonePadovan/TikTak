@@ -1,4 +1,5 @@
 import grails.converters.*
+import grails.util.Environment
 import it.bz.security.*
 import it.bz.tiktak.core.Activity
 import it.bz.tiktak.core.Person
@@ -13,7 +14,7 @@ import it.bz.timetracker.*
 class BootStrap {
 
     def init = { servletContext ->
-//	  if (GrailsUtil.getEnvironment() == "development") {
+	  if (Environment.current == Environment.DEVELOPMENT) {
 		  def s1 = new Service(descrI: "Sviluppo nuovo SW", descrD: "Software produktion", codice: "SVIL").save()	
 		  def s2 = new Service(descrI: "Manutenzione SW", descrD: "Manutenzione SW", codice: "MANUT").save()
 		  def s3 = new Service(descrI: "Gestione economica contratti/licenze", descrD: "Basisbetreuung-Lizenzen - Sonst ", codice: "ECON").save()
@@ -58,7 +59,7 @@ class BootStrap {
 		  
 		  new Tracking(person: simpleUser, date: new Date(), hours: 6, project: p1, activity: a1).save()
 		  new Tracking(person: simpleUser, date: new Date()-1, hours: 4, project: p1, activity: a1).save()
-	  //}	  
+	  }	  
 	  
     }
     def destroy = {
