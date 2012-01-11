@@ -80,17 +80,17 @@
 		<div id="menu" role="menu">
 			<h1><g:message code="menu.management" default="Management" /></h1>
 			<ul>
-			  <li class="controller"><g:link controller="MyTracking">${message(code: 'myTracking.label', default: 'My trackings')}</g:link></li>
-			  <li class="controller"><g:link controller="Tracking">${message(code: 'tracking.label', default: 'Tracking')}</g:link></li>			  
+			  <li class="controller"><g:link controller="MyTracking">${message(code: 'myTracking.menu', default: 'My trackings')}</g:link></li>
+			  <li class="controller"><g:link controller="Tracking">${message(code: 'tracking.menu', default: 'Tracking')}</g:link></li>			  
 			</ul>
 			<br/>
 			<h1><g:message code="menu.basetables" default="Base tables" /></h1>
 			<ul>
-			   <li class="controller"><g:link controller="Service">${message(code: 'service.label', default: 'Service')}</g:link></li>
-			   <li class="controller"><g:link controller="Activity">${message(code: 'activity.label', default: 'Activity')}</g:link></li>
-			   <li class="controller"><g:link controller="Project">${message(code: 'project.label', default: 'Project')}</g:link></li>
-			   <li class="controller"><g:link controller="Person">${message(code: 'person.label', default: 'Person')}</g:link></li>
-			   <li class="controller"><g:link controller="ProjectPerson">${message(code: 'projectPerson.label', default: 'Project per Person')}</g:link></li>
+			   <li class="controller"><g:link controller="Service">${message(code: 'service.menu', default: 'Service')}</g:link></li>
+			   <li class="controller"><g:link controller="Activity">${message(code: 'activity.menu', default: 'Activity')}</g:link></li>
+			   <li class="controller"><g:link controller="Project">${message(code: 'project.menu', default: 'Project')}</g:link></li>
+			   <li class="controller"><g:link controller="Person">${message(code: 'person.menu', default: 'Person')}</g:link></li>
+			   <li class="controller"><g:link controller="ProjectPerson">${message(code: 'projectPerson.menu', default: 'Project per Person')}</g:link></li>
 			</ul>
 		</div>
 		<div id="page-body" role="about">

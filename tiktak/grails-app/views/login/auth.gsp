@@ -114,6 +114,11 @@
 			</p>
 		</form>
 	</div>
+	<div>
+	   Administrator: admin/password<br/>
+	   User: user/password
+	</div>
+	
 </div>
 <script type='text/javascript'>
 	<!--

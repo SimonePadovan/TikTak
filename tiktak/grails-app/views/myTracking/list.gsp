@@ -20,7 +20,7 @@
 			<h1><g:message code="default.list.label" args="[entityName]" />
 				<div class="alignright">
 				  <g:formatDate date="${params.from}" /> .. <g:formatDate date="${params.to}" />:
-				  <g:formatNumber number="${myTrackingInstanceList?.hours?.sum()}" format="0.00" />
+				  <g:formatNumber number="${myTrackingInstanceList?.hours?.sum()}" format="0.00h" />
 				</div>
 			</h1>
 			
@@ -42,32 +42,27 @@
 				</thead>
 				<tbody>
 				
-				<g:if test="${myTrackingInstanceList.size() != 0}">
-				    <g:set var="currentDate" value="${myTrackingInstanceList?.first()?.date}" />
-				    <g:set var="totalDate" value="${0}" />
-				</g:if>
+			    <g:set var="currentDate" value="" />
 				<g:each in="${myTrackingInstanceList}" status="i" var="myTrackingInstance">
 					<g:if test="${myTrackingInstance.date != currentDate}">
-					 <tr class="group">
-					       <td colspan="2">
-					          <g:formatDate format="EEEEEEEEEEE"  date="${currentDate}" />,  
-					          <g:formatDate date="${currentDate}" />
+					  <g:set var="currentDate" value="${myTrackingInstance.date}" />
+				 	  <tr class="group">
+					       <td colspan="5">
+					          <g:if test="${currentDate == new Date().clearTime()}">
+					              <g:message code="oggi" default="Today" />,
+					          </g:if>
+					          <g:else>
+					              <g:formatDate format="EEEEEEEEEEE"  date="${currentDate}" />,
+					          </g:else>    
+					          <g:formatDate date="${currentDate}" />:  
+					          <g:formatNumber number="${myTrackingInstanceList.findAll{it.date == currentDate}.hours?.sum()}" format="0.00h" />
 					       </td>
-					       <td class="alignright">
-					         <g:formatNumber number="${totalDate}" format="0.00" />
-					       </td>
-     				       <td></td>
-					 </tr>
-					    <g:set var="currentDate" value="${myTrackingInstance.date}" />
-					    <g:set var="totalDate" value="${myTrackingInstance.hours}" />
+					  </tr>
 					</g:if>
-					<g:else>
-					   <g:set var="totalDate" value="${myTrackingInstance.hours + totalDate}" />
-					</g:else>
 				
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					<tr>
 					
-						<td><g:link action="show" id="${myTrackingInstance.id}">${fieldValue(bean: myTrackingInstance, field: "project")}</g:link></td>
+						<td>&nbsp;&nbsp;<g:link action="show" id="${myTrackingInstance.id}">${fieldValue(bean: myTrackingInstance, field: "project")}</g:link></td>
 					
 						<td>${fieldValue(bean: myTrackingInstance, field: "activity")}</td>
 					
@@ -78,20 +73,6 @@
 					</tr>
 					
 				</g:each>
-			
-				<g:if test="${totalDate > 0}">
-				 <tr class="group">
-				       <td colspan="2">
-				          <g:formatDate format="EEEEEEEEEEE"  date="${currentDate}" />,				            
-				          <g:formatDate date="${currentDate}" />
-				       </td>
-				       <td  class="alignright">
-				         <g:formatNumber number="${totalDate}" format="0.00" />
-				       </td>
-				       <td></td>
-				 </tr>
-				</g:if>			
-				
 				</tbody>
 			</table>
 			

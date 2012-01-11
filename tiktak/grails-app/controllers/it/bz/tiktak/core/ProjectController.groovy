@@ -13,11 +13,11 @@ class ProjectController extends BaseController {
 
 	def showActivities() {
 		if(params.id && Project.exists(params.id)){
-			def retval = Project.findById(params.id)?.getActivities()
+			def retvalue = Project.findById(params.id)?.getActivities()
 
 			withFormat {
-				xml { render retval as XML }
-				json { render retval as JSON }
+				xml { render retvalue as XML }
+				json { render retvalue as JSON }
 			}
 		}
 	}

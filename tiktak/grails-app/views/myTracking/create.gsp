@@ -3,7 +3,11 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		
+		<g:javascript library="jquery" />
+
 		<g:set var="entityName" value="${message(code: 'myTracking.label', default: 'MyTracking')}" />
+				
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
