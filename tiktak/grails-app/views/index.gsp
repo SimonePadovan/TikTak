@@ -89,7 +89,6 @@
 			   <li class="controller"><g:link controller="Service">${message(code: 'service.menu', default: 'Service')}</g:link></li>
 			   <li class="controller"><g:link controller="Activity">${message(code: 'activity.menu', default: 'Activity')}</g:link></li>
 			   <li class="controller"><g:link controller="Project">${message(code: 'project.menu', default: 'Project')}</g:link></li>
-			   <li class="controller"><g:link controller="Person">${message(code: 'person.menu', default: 'Person')}</g:link></li>
 			   <li class="controller"><g:link controller="ProjectPerson">${message(code: 'projectPerson.menu', default: 'Project per Person')}</g:link></li>
 			</ul>
 		</div>

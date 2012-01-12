@@ -12,19 +12,11 @@ class Tracking {
 	String detail
 
 	static constraints = {
-		project validator: { value, self ->
-			boolean valid = true			
-			if (value.dataFine && value.dataFine <= self.date)
-    		   valid = false
-
-			return valid
+		project validator: { value, self ->		
+			(!value.dataFine || value.dataFine > self.date)
 		}
 		activity validator: { value, self ->
-			boolean valid = true			
-			if (value.dataFine && value.dataFine <= self.date)
-    		   valid = false
-
-			return valid
+			(!value.dataFine || value.dataFine > self.date)
 		}
 		hours min:0.15d, max:MAX_HOURS_PER_DAY, validator: { value, self ->
 			boolean valid = true

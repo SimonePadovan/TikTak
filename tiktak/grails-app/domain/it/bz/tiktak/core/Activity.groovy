@@ -12,7 +12,7 @@ class Activity {
 	static constraints = {	
 	  descrI blank:false
       descrD blank:false
- 	  service()
+	  service ()
 	  dataFine nullable:true
 	}
 		
