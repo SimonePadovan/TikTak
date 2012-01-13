@@ -9,13 +9,13 @@ class PersonController {
 	def showProjects() {
 		if(params.id && Person.exists(params.id)){
 			def retvalue = Person.findById(params.id)?.getProjects()
-			/*
-			if (params.validOn)
+			
+			if (params.validOn) {
 			  Date validOn = params.date('validOn', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))			
 			  if (validOn)			
-			    retvalue = retvalue.findAll {!it.dataFine || it.dataFine > validOn}
-			*/       
-
+			    retvalue = retvalue.findAll {!it.dataFine || it.dataFine > validOn}      
+			}
+				
 			withFormat {
 				html { [personProjects : retvalue] }
 				xml { render retvalue as XML }

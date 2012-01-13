@@ -10,9 +10,15 @@ class Person extends User {
     static constraints = {
     }
 	
-	def getProjects() {
-		ProjectPerson.findAllByPerson(this).project
+	def getProjects(Date validOn) {
+		def projects = ProjectPerson.findAllByPerson(this).project
+		if (validOn)
+		  projects.findAll {!it.dataFine || it.dataFine > validOn}			  
 	}
-	
+
+	def getProjects() {
+		getProjects(null)
+	}
+		
 	String toString() { "${this.lastName} ${this.firstName}" }
 }

@@ -9,31 +9,31 @@ abstract class BaseController {
 
 	def model
 	 
-	def getModelName() {
+	protected def getModelName() {
 		model.metaClass.theClass.toString().tokenize('.').last()
 	}
 	
-	def uncapitalize (String value) {
+	protected def uncapitalize (String value) {
 		value[0].toLowerCase() + value.substring(1)
 	}
   
-	def getModelLabel() {
+	protected def getModelLabel() {
 		uncapitalize(getModelName()) + '.label'
 	}	
 
-	def getModelXmlKey() {
+	protected def getModelXmlKey() {
 		uncapitalize(getModelName())
 	}
 	
-	def getInstanceListKey() {
+	protected def getInstanceListKey() {
 		uncapitalize(getModelName()) + 'InstanceList'
 	}
 	
-	def getInstanceTotalKey() {
+	protected def getInstanceTotalKey() {
 		uncapitalize(getModelName()) + 'InstanceTotal'
 	}
 
-	def getInstanceKey() {
+	protected def getInstanceKey() {
 		uncapitalize(getModelName()) + 'Instance'
 	}
 
@@ -42,7 +42,7 @@ abstract class BaseController {
 		redirect(action: "list", params: params)
 	}
 	
-	def doList(params) {
+	protected def doList(params) {
 		model.list(params)
 	}
 
@@ -57,7 +57,7 @@ abstract class BaseController {
 		}
 	}
 
-	def doFind(params) {
+	protected def doFind(params) {
 		model.findById(params.id)
 	}	
 	
@@ -89,7 +89,7 @@ abstract class BaseController {
 		[(getInstanceKey()): instance]
 	}
 
-	def newInstance()
+	protected def newInstance()
 	{
 		model.newInstance(request.format == 'xml' ? params[getModelXmlKey()] : params)
 	}
@@ -128,7 +128,7 @@ abstract class BaseController {
 		}
 	}
 
-	def renderNotFound = {
+	protected def renderNotFound = {
 		html {
 			flash.message = "${message(code: 'default.not.found.message', args: [message(code: getModelLabel(), default: getModelName()), params.id])}"
 			redirect(action: "list")
@@ -186,7 +186,7 @@ abstract class BaseController {
 		}
 	}
 
-	def setProps(instance, p)
+	protected def setProps(instance, p)
 	{
 		instance.properties = p
 	}

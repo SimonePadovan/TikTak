@@ -11,7 +11,7 @@ class TrackingController extends BaseController {
 		model = Tracking
 	}
 
-	def doList(params) {
+	protected def doList(params) {
 		if (params.from) {
 			def from = params.from
 			def to =  params.to

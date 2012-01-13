@@ -13,19 +13,19 @@ class MyTrackingController extends BaseController {
 		model = Tracking
 	}
 	
-	def getInstanceListKey() {
+	protected def getInstanceListKey() {
 		'myTrackingInstanceList'
 	}
 	
-	def getInstanceTotalKey() {
+	protected def getInstanceTotalKey() {
 		'myTrackingInstanceTotal'
 	}
 
-	def getInstanceKey() {
+	protected def getInstanceKey() {
 		'myTrackingInstance'
 	}	
 	
-	def doList(params) {
+	protected def doList(params) {
 		def user = Person.get(springSecurityService.principal.id)
 		if (params.from) {
 			def from = params.from
@@ -62,20 +62,20 @@ class MyTrackingController extends BaseController {
 		}
 	}
 
-	def doFind(params) {
+	protected def doFind(params) {
 		def user = Person.get(springSecurityService.principal.id)
 		if (user)
 			Tracking.findByPersonAndId(user, params.id)
 	}
 
-	def newInstance() {
+	protected def newInstance() {
 		def instance = super.newInstance()
 		
 		instance.person = Person.get(springSecurityService.principal.id)
 		return instance
 	}
 
-	def setProps(instance, p)
+	protected def setProps(instance, p)
 	{
 		super.setProps(instance, p)
 		
@@ -91,18 +91,22 @@ class MyTrackingController extends BaseController {
 	{		
 		if (params.id) {
   	  	  Project p = Project.get(params.id)
-		  render g.select(id:'activityCombo', name:'activity.id', from:p?.getActivities(), optionKey:'id', value:'${myTrackingInstance?.activity?.id}', class:'many-to-one')
+		  Date validOn	
+		  if (params.validOn)
+			  validOn = params.date('validOn', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))
+			  
+		  render g.select(id:'activityCombo', name:'activity.id', from:p?.getActivities(validOn), optionKey:'id', value:'${myTrackingInstance?.activity?.id}', class:'many-to-one')
 		}
 		else
 		  render ""    
 	}
 	
-	def getFirstDayOfWeek(Date day) {
+	private def getFirstDayOfWeek(Date day) {
 		day.clearTime()
 		return day - day.calendarDate.dayOfWeek + 2 // Monday
 	}
 	
-	def setWeekParams() {
+	private def setWeekParams() {
 		if (params.id) {
 			Tracking instance = Tracking.get(params.id)
 			if (instance)

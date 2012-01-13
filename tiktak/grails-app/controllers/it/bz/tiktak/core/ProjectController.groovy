@@ -13,8 +13,16 @@ class ProjectController extends BaseController {
 
 	def showActivities() {
 		if(params.id && Project.exists(params.id)){
-			def retvalue = Project.findById(params.id)?.getActivities()
+			def retvalue
 
+			if (params.validOn) {
+				Date validOn = params.date('validOn', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))
+				if (validOn)
+				  retvalue = Project.findById(params.id)?.getValidActivities(validOn)
+			}	
+			else 
+			  	retvalue = Project.findById(params.id)?.getActivities()
+ 
 			withFormat {
 				xml { render retvalue as XML }
 				json { render retvalue as JSON }

@@ -16,9 +16,18 @@ class Project {
 	  dataFine nullable:true
 	}
 	
-	def getActivities() {
-		Activity.findAllByService(this.service)
+	def getActivities(Date validOn) {
+		def activities = Activity.findAllByService(this.service)
+		if (validOn) {
+			println validOn
+			
+		    activities.findAll {!it.dataFine || it.dataFine > validOn}
+		}  			  
 	}
 	
+	def getActivities() {
+		getActivities(null)
+	}
+
 	String toString() { "${this.descrI}" }
 }
