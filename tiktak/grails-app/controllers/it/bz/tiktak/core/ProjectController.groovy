@@ -15,7 +15,7 @@ class ProjectController extends BaseController {
 			Date validOn
 			if (params.validOn)
 				validOn = params.date('validOn', message(code: "dateFormat", default: 'dd/MM/yyyy')) 
-
+				
 			def retvalue = Project.findById(params.id)?.getActivities(validOn)
  
 			withFormat {

@@ -19,7 +19,7 @@ class Project {
 	def getActivities(Date validOn) {
 		def activities = Activity.findAllByService(this.service)		
 		if (validOn)
-		    activities.findAll {!it.dataFine || it.dataFine > validOn}
+		    activities = activities.findAll {!it.dataFine || it.dataFine > validOn}
 		
 		return activities
 	}
