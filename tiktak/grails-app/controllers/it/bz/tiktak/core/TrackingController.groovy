@@ -17,11 +17,11 @@ class TrackingController extends BaseController {
 			def to =  params.to
 			
 			if (!from instanceof Date)
-			 	from = params.date('from', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))
+			 	from = params.date('from', message(code: "dateFormat", default: 'dd/MM/yyyy'))
 
 			if (to) {
 				if  (!to instanceof Date)
-				  to = params.date('to', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))
+				  to = params.date('to', message(code: "dateFormat", default: 'dd/MM/yyyy'))
 				Tracking.findAllByDateBetween(from, to, params)
 			}	
 			else

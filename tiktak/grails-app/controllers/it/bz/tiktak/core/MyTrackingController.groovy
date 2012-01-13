@@ -31,11 +31,11 @@ class MyTrackingController extends BaseController {
 			def from = params.from
 			def to =  params.to			
 			if (!from instanceof Date)
-			 	from = params.date('from', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))
+			 	from = params.date('from', message(code: "dateFormat", default: 'dd/MM/yyyy'))
 			
 			if (to) {
 				if (!to instanceof Date)
-				   to = params.date('to', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))
+				   to = params.date('to', message(code: "dateFormat", default: 'dd/MM/yyyy'))
 				Tracking.findAllByPersonAndDateBetween(user, from, to, params)
 			}	
 			else 
@@ -93,7 +93,7 @@ class MyTrackingController extends BaseController {
   	  	  Project p = Project.get(params.id)
 		  Date validOn	
 		  if (params.validOn)
-			  validOn = params.date('validOn', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))
+			  validOn = params.date('validOn', message(code: "dateFormat", default: 'dd/MM/yyyy'))
 			  
 		  render g.select(id:'activityCombo', name:'activity.id', from:p?.getActivities(validOn), optionKey:'id', value:'${myTrackingInstance?.activity?.id}', class:'many-to-one')
 		}

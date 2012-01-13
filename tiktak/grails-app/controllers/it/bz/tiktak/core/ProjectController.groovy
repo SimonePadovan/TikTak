@@ -5,7 +5,6 @@ import grails.plugins.springsecurity.Secured
 
 @Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class ProjectController extends BaseController {
-	
 	// Imposto model di BaseController
     def beforeInterceptor = {
 		model = Project
@@ -13,15 +12,11 @@ class ProjectController extends BaseController {
 
 	def showActivities() {
 		if(params.id && Project.exists(params.id)){
-			def retvalue
+			Date validOn
+			if (params.validOn)
+				validOn = params.date('validOn', message(code: "dateFormat", default: 'dd/MM/yyyy')) 
 
-			if (params.validOn) {
-				Date validOn = params.date('validOn', messageSource.getMessage("dateFormat",null,'dd/MM/yyyy'))
-				if (validOn)
-				  retvalue = Project.findById(params.id)?.getValidActivities(validOn)
-			}	
-			else 
-			  	retvalue = Project.findById(params.id)?.getActivities()
+			def retvalue = Project.findById(params.id)?.getActivities(validOn)
  
 			withFormat {
 				xml { render retvalue as XML }

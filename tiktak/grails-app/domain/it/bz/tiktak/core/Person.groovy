@@ -13,11 +13,12 @@ class Person extends User {
 	def getProjects(Date validOn) {
 		def projects = ProjectPerson.findAllByPerson(this).project
 		if (validOn)
-		  projects.findAll {!it.dataFine || it.dataFine > validOn}			  
+		   projects.findAll {!it.dataFine || it.dataFine > validOn}
+		 return projects  			  
 	}
 
 	def getProjects() {
-		getProjects(null)
+		return getProjects(null)
 	}
 		
 	String toString() { "${this.lastName} ${this.firstName}" }
