@@ -5,6 +5,8 @@ class MyTagLib {
 
 	// extract the current locale
 	public String getLocale(def httpRequest) {
+		Locale
+		
 		def supportedLocales = ["it", "de"]
 		def locale = RCU.getLocale(httpRequest).toString()
 		if (locale in supportedLocales)

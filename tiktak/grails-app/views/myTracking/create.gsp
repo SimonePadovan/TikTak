@@ -5,9 +5,10 @@
 		<meta name="layout" content="main">
 		
 		<g:javascript library="jquery" />
+		
+		<r:require module="jquery-ui"/>
 
-		<g:set var="entityName" value="${message(code: 'myTracking.label', default: 'MyTracking')}" />
-				
+		<g:set var="entityName" value="${message(code: 'myTracking.label', default: 'MyTracking')}" />			
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>

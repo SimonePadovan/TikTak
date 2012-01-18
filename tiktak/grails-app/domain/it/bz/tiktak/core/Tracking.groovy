@@ -4,7 +4,7 @@ class Tracking {
 
 	static final double MAX_HOURS_PER_DAY = 12d
 
-	Date date
+	Date date = new Date().clearTime()
 	double hours
 	Project project
 	Activity activity

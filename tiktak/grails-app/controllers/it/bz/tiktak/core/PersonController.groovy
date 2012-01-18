@@ -10,7 +10,7 @@ class PersonController {
 		if(params.id && Person.exists(params.id)){
 			Date validOn
 			if (params.validOn)
-				validOn = params.date('validOn', message(code: "dateFormat", default: 'dd/MM/yyyy'))
+				validOn = params.date('validOn', message(code: "default.date.format", default: 'dd/MM/yyyy'))
 			
 			def retvalue = Person.findById(params.id)?.getProjects(validOn)
 				
@@ -28,8 +28,8 @@ class PersonController {
 
 			def retvalue
 			if (params.from) {
-				def from = params.date('from', message(code: "dateFormat", default: 'dd/MM/yyyy'))
-				def to = params.date('to', message(code: "dateFormat", default: 'dd/MM/yyyy'))
+				def from = params.date('from', message(code: "default.date.format", default: 'dd/MM/yyyy'))
+				def to = params.date('to', message(code: "default.date.format", default: 'dd/MM/yyyy'))
 				if (to)
 					retvalue = Tracking.findAllByPersonAndDateBetween(person, from, to)
 				else

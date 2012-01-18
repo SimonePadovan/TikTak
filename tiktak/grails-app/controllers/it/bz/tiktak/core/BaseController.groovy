@@ -8,6 +8,10 @@ abstract class BaseController {
 	static allowedMethods = [save: "POST", update: ['POST', 'PUT'], delete: ['POST', 'DELETE']]
 
 	def model
+	
+	protected def getDefaultDateFormat() {
+	  message(code: "default.date.format", default: 'dd/MM/yyyy')
+	}  
 	 
 	protected def getModelName() {
 		model.metaClass.theClass.toString().tokenize('.').last()

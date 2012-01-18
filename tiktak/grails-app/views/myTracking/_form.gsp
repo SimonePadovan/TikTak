@@ -2,12 +2,27 @@
 <%@ page import="it.bz.tiktak.core.Project" %>
 <%@ page import="it.bz.tiktak.core.Activity" %>
 
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+      $("#date").datepicker({dateFormat: '${message(code: "jsDateFormat", default: "dd/mm/yy")}', 
+                              showButtonPanel: true
+//                              ,onClose: function(dateText, inst) {
+//                                  var date = $(this).datepicker('getDate');
+//                                  $('#date_day').attr("value",date.getDate());
+//                                  $('#date_month').attr("value",date.getMonth()+1);
+//                                  $('#date_year').attr("value",date.getFullYear());
+//                               }
+   							   });
+    })
+</script>
+
 <div class="fieldcontain ${hasErrors(bean: myTrackingInstance, field: 'project', 'error')} required">
 	<label for="project">
 		<g:message code="myTracking.project.label" default="Project" />
 		<span class="required-indicator">*</span>
 	</label>
-    <g:select onchange="${remoteFunction(action: 'refreshActivities', update: 'activity', params:'\'id=\'+this.value')}" id="project" name="project.id" from="${myTrackingInstance?.person?.projects ?: Project.list()}" optionKey="id"  noSelection="${['':'Select one...']}"  required="" value="${myTrackingInstance?.project?.id}" class="many-to-one"/>
+    <g:select onchange="${remoteFunction(action: 'refreshActivities', update: 'activity', params:'\'id=\'+this.value+\'&validOn=\'+document.getElementById(\'date\').value+\'&activityId=\'+document.getElementById(\'activity\').value')}" id="project" name="project.id" from="${myTrackingInstance?.person?.getProjects(myTrackingInstance?.date) ?: Project.list()}" optionKey="id"  noSelection="${['':'Select one...']}"  required="" value="${myTrackingInstance?.project?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: myTrackingInstance, field: 'activity', 'error')} required">
@@ -36,13 +51,17 @@
 		<g:message code="myTracking.date.label" default="Date" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="date" precision="day"  value="${myTrackingInstance?.date}"  />
+	<script language="javascript">
+	function updateActivity( ) {
+		document.getElementById('project').onchange();  
+    }
+	</script>
+	<g:field type="date" name="date" onchange="${remoteFunction(onSuccess:"updateActivity()", action: 'refreshProjects', update: 'project', params:'\'id=\'+document.getElementById(\'project\').value+\'&validOn=\'+this.value+\'&activityId=\'+document.getElementById(\'activity\').value')}"  value="${formatDate(date:myTrackingInstance?.date)}"  />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: myTrackingInstance, field: 'detail', 'error')} ">
 	<label for="detail">
-		<g:message code="myTracking.detail.label" default="Detail" />
-		
+		<g:message code="myTracking.detail.label" default="Detail" />		
 	</label>
 	<g:textArea name="detail" value="${myTrackingInstance?.detail}" rows="2"/>
 </div>

@@ -29,13 +29,13 @@ class MyTrackingController extends BaseController {
 		def user = Person.get(springSecurityService.principal.id)
 		if (params.from) {
 			def from = params.from
-			def to =  params.to			
+			def to =  params.to
 			if (!from instanceof Date)
-			 	from = params.date('from', message(code: "dateFormat", default: 'dd/MM/yyyy'))
+			 	from = params.date('from', getDefaultDateFormat())
 			
 			if (to) {
 				if (!to instanceof Date)
-				   to = params.date('to', message(code: "dateFormat", default: 'dd/MM/yyyy'))
+				   to = params.date('to', getDefaultDateFormat())
 				Tracking.findAllByPersonAndDateBetween(user, from, to, params)
 			}	
 			else 
@@ -92,15 +92,31 @@ class MyTrackingController extends BaseController {
 		if (params.id) {
   	  	  Project p = Project.get(params.id)
 		  Date validOn	
-		  if (params.validOn)
-			  validOn = params.date('validOn', message(code: "dateFormat", default: 'dd/MM/yyyy'))
+		  if (params.validOn) {
+			  validOn = params.date('validOn', getDefaultDateFormat())
+		  }
 			  
-		  render g.select(id:'activityCombo', name:'activity.id', from:p?.getActivities(validOn), optionKey:'id', value:'${myTrackingInstance?.activity?.id}', class:'many-to-one')
+		  render g.select(id:'activity', name:'activity.id', from:p?.getActivities(validOn), optionKey:'id', value:params.activityId, class:'many-to-one')
 		}
 		else
 		  render ""    
 	}
-	
+
+	def refreshProjects()
+	{
+		def user = Person.get(springSecurityService.principal.id)
+		if (user) {
+		  Date validOn
+		  if (params.validOn) {
+			  validOn = params.date('validOn', getDefaultDateFormat())
+		  }
+		  
+		  render g.select(id:'project', name:'project.id', from:user?.getProjects(validOn), optionKey:'id', noSelection:['':'Select one...'], value:params.id, class:'many-to-one')
+		}
+		else
+		  render ""
+	}
+		
 	private def getFirstDayOfWeek(Date day) {
 		day.clearTime()
 		return day - day.calendarDate.dayOfWeek + 2 // Monday
