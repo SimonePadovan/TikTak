@@ -25,9 +25,11 @@ class BootStrap {
 		  def p1 = new Project(descrI: "Sicop", descrD: "Sicop", codice: "SICOP", service: s1).save()
 		  def p2 = new Project(descrI: "Manutenztione applicazione x", descrD: "Manutenztione applicazione x", codice: "MANUT_PJX", service: s2).save()
 		  def p3 = new Project(descrI: "xxxxx", descrD: "xxxx", codice: "MANUT_PJX", service: s1).save()
+		  def p4 = new Project(descrI: "Progetto chiuso", descrD: "Progetto chiuso", codice: "CLOSED", dataFine:new Date()-1, service: s2).save()
 	
 		  def a1 = new Activity(descrI: "Analisi business", descrD: "Analisi business", service: s1).save()
 		  def a3 = new Activity(descrI: "Analisi", descrD: "Analyse", service: s2).save()
+		  def a4 = new Activity(descrI: "Attivitá chiusa", descrD: "Attivitá chiusa", dataFine: new Date()-1, service: s2).save()
 		  
 		  new Activity(descrI: "Sviuppo", descrD: "Entwicklung", service: s1).save()  
 		  new Activity(descrI: "Sviuppo", descrD: "Entwicklung", service: s2).save()
@@ -48,10 +50,10 @@ class BootStrap {
 	  
 		  new ProjectPerson(project: p1, person: adminUser).save()
 		  new ProjectPerson(project: p2, person: adminUser).save()
+		  new ProjectPerson(project: p4, person: adminUser).save()
 		  
 		  new ProjectPerson(project: p1, person: simpleUser).save()
-		  
-		  
+		  		  
 		  new Tracking(person: adminUser, date: new Date(), hours: 6, project: p1, activity: a1).save()
 		  new Tracking(person: adminUser, date: new Date(), hours: 1, project: p2, activity: a3).save()
 		  new Tracking(person: adminUser, date: new Date()-1, hours: 2, project: p2, activity: a3).save()

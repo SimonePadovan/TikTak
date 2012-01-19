@@ -30,12 +30,8 @@
 		<g:message code="myTracking.activity.label" default="Activity" />
 		<span class="required-indicator">*</span>
 	</label>
-
-    <span id="activity">
-	<g:if test="${myTrackingInstance?.project}">	
-	  <g:select id="activity" name="activity.id" from="${myTrackingInstance?.project?.activities}" optionKey="id" required="" value="${myTrackingInstance?.activity?.id}" class="many-to-one"/>
-	</g:if>
-	</span>
+	
+	<g:select id="activity" name="activity.id" from="${myTrackingInstance?.project?.activities}" optionKey="id" required="" value="${myTrackingInstance?.activity?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: myTrackingInstance, field: 'hours', 'error')} required">
