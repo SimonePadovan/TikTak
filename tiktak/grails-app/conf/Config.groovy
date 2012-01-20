@@ -107,6 +107,9 @@ grails.plugin.cloudfoundry.username = 'simone.padovan@provincia.bz.it'
 grails.plugin.cloudfoundry.password = 'Samba123'
 
 // Added by the Spring Security Core plugin:
+//grails.plugins.springsecurity.useBasicAuth = true
+//grails.plugins.springsecurity.basic.realmName = "tiktak.com"
+
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'it.bz.tiktak.security.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'it.bz.tiktak.security.UserRole'
 grails.plugins.springsecurity.authority.className = 'it.bz.tiktak.security.Role'

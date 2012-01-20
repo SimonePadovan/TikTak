@@ -11,7 +11,7 @@ class Person extends User {
     }
 	
 	def getProjects(Date validOn) {
-		def projects = ProjectPerson.findAllByPerson(this).project
+		def projects = ProjectPerson.findAllByPerson(this).project		 
 		if (validOn)
 			projects = projects.findAll {!it.dataFine || it.dataFine > validOn}
 		return projects  			  

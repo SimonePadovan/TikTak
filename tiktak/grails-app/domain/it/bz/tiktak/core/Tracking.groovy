@@ -13,10 +13,20 @@ class Tracking {
 
 	static constraints = {
 		project validator: { value, self ->		
-			(!value.dataFine || value.dataFine > self.date)
+			if (value.dataFine && value.dataFine <= self.date)
+			  return ['validator.closed', self.date]
+			if (!self.id) {  // Solo in caso di inserimento
+			  if (!self.person?.getProjects()?.contains(value))  
+			    return 'validator.notboundtoperson'
+			}	
 		}
 		activity validator: { value, self ->
-			(!value.dataFine || value.dataFine > self.date)
+			if (value.dataFine && value.dataFine <= self.date)
+			  return ['validator.closed', self.date]
+			if (!self.id) {  // Solo in caso di inserimento	
+			  if (!self.project?.getActivities()?.contains(value))  
+			    return 'validator.notboundtoproject'
+			}	
 		}
 		hours min:0.15d, max:MAX_HOURS_PER_DAY, validator: { value, self ->
 			boolean valid = true
@@ -30,7 +40,9 @@ class Tracking {
 				if (total > MAX_HOURS_PER_DAY)
 					valid = false
 			}
-			return valid
+			if (!valid)
+			  return ['validator.error', MAX_HOURS_PER_DAY]
+  		    return true  
 		}
 		date()
 		detail nullable:true

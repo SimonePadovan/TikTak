@@ -2,20 +2,16 @@
 <%@ page import="it.bz.tiktak.core.Project" %>
 <%@ page import="it.bz.tiktak.core.Activity" %>
 
-<script type="text/javascript">
-    $(document).ready(function()
-    {
-      $("#date").datepicker({dateFormat: '${message(code: "jsDateFormat", default: "dd/mm/yy")}', 
-                              showButtonPanel: true
-//                              ,onClose: function(dateText, inst) {
-//                                  var date = $(this).datepicker('getDate');
-//                                  $('#date_day').attr("value",date.getDate());
-//                                  $('#date_month').attr("value",date.getMonth()+1);
-//                                  $('#date_year').attr("value",date.getFullYear());
-//                               }
-   							   });
-    })
-</script>
+<script language="javascript">
+//Associa automaticamente agli input type=date il calendario jQueryUi 
+$(document).ready(function()
+	    {
+	      $(':input[type=date]').each(function(index, value) {
+	          $(this).datepicker({dateFormat: '${message(code: "jsDateFormat", default: "dd/mm/yy")}', 
+	              showButtonPanel: true });          
+	      });
+	    })
+</script>	    
 
 <div class="fieldcontain ${hasErrors(bean: myTrackingInstance, field: 'project', 'error')} required">
 	<label for="project">
