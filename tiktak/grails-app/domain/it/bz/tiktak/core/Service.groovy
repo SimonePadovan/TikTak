@@ -7,13 +7,13 @@ class Service {
 	String codice
 	String descrI
 	String descrD
-	Date dataFine
+	Date endDate
 	
 	static constraints = {
 	  codice unique:true
 	  descrI blank:false
 	  descrD blank:false
-	  dataFine nullable:true
+	  endDate nullable:true
 	}
 	
 	String toString() { "${this.descrI}" }

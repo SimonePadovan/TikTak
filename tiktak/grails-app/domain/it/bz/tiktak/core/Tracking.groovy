@@ -13,15 +13,13 @@ class Tracking {
 
 	static constraints = {
 		project validator: { value, self ->		
-			if (value.dataFine && value.dataFine <= self.date)
+			if (value.endDate && value.endDate <= self.date)
 			  return ['validator.closed', self.date]
-			if (!self.id) {  // Solo in caso di inserimento
-			  if (!self.person?.getProjects()?.contains(value))  
+  		    if (!self.person?.getProjects(self.date)?.contains(value))  
 			    return 'validator.notboundtoperson'
-			}	
 		}
 		activity validator: { value, self ->
-			if (value.dataFine && value.dataFine <= self.date)
+			if (value.endDate && value.endDate <= self.date)
 			  return ['validator.closed', self.date]
 			if (!self.id) {  // Solo in caso di inserimento	
 			  if (!self.project?.getActivities()?.contains(value))  

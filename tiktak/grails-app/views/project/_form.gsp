@@ -33,11 +33,11 @@
 	<g:select id="service" name="service.id" from="${Service.list()}" optionKey="id" required="" value="${projectInstance?.service?.id}" class="many-to-one"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'dataFine', 'error')} ">
-	<label for="dataFine">
-		<g:message code="project.dataFine.label" default="Data Fine" />
+<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'endDate', 'error')} ">
+	<label for="endDate">
+		<g:message code="project.endDate.label" default="Data Fine" />
 		
 	</label>
-	<g:datePicker name="dataFine" precision="day"  value="${projectInstance?.dataFine}" default="none" noSelection="['': '']" />
+	<g:datePicker name="endDate" precision="day"  value="${projectInstance?.endDate}" default="none" noSelection="['': '']" />
 </div>
 

@@ -28,6 +28,7 @@
 					
 						<th><g:message code="projectPerson.project.label" default="Project" /></th>
 					
+					    <g:sortableColumn property="endDate" title="${message(code: 'projectPerson.endDate.label', default: 'Data Fine')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -37,6 +38,8 @@
 						<td><g:link action="show" id="${projectPersonInstance.id}">${fieldValue(bean: projectPersonInstance, field: "person")}</g:link></td>
 					
 						<td>${fieldValue(bean: projectPersonInstance, field: "project")}</td>
+						
+						<td><g:formatDate date="${projectPersonInstance.endDate}" /></td>
 					
 					</tr>
 				</g:each>

@@ -50,11 +50,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${serviceInstance?.dataFine}">
+				<g:if test="${serviceInstance?.endDate}">
 				<li class="fieldcontain">
-					<span id="dataFine-label" class="property-label"><g:message code="service.dataFine.label" default="Data Fine" /></span>
+					<span id="endDate-label" class="property-label"><g:message code="service.endDate.label" default="Data Fine" /></span>
 					
-						<span class="property-value" aria-labelledby="dataFine-label"><g:formatDate date="${serviceInstance?.dataFine}" /></span>
+						<span class="property-value" aria-labelledby="endDate-label"><g:formatDate date="${serviceInstance?.endDate}" /></span>
 					
 				</li>
 				</g:if>

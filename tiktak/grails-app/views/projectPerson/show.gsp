@@ -40,6 +40,15 @@
 					
 				</li>
 				</g:if>
+
+				<g:if test="${projectPersonInstance?.endDate}">
+				<li class="fieldcontain">
+					<span id="endDate-label" class="property-label"><g:message code="projectPerson.endDate.label" default="Data Fine" /></span>
+					
+						<span class="property-value" aria-labelledby="endDate-label"><g:formatDate date="${projectPersonInstance?.endDate}" /></span>
+					
+				</li>
+				</g:if>
 			
 			</ol>
 			<g:form>

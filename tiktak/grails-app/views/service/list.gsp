@@ -31,7 +31,7 @@
 					
 						<g:sortableColumn property="descrD" title="${message(code: 'service.descrD.label', default: 'Descr D')}" />
 					
-						<g:sortableColumn property="dataFine" title="${message(code: 'service.dataFine.label', default: 'Data Fine')}" />
+						<g:sortableColumn property="endDate" title="${message(code: 'service.endDate.label', default: 'Data Fine')}" />
 					
 					</tr>
 				</thead>
@@ -45,7 +45,7 @@
 					
 						<td>${fieldValue(bean: serviceInstance, field: "descrD")}</td>
 					
-						<td><g:formatDate date="${serviceInstance.dataFine}" /></td>
+						<td><g:formatDate date="${serviceInstance.endDate}" /></td>
 					
 					</tr>
 				</g:each>

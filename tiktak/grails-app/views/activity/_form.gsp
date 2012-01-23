@@ -25,11 +25,11 @@
 	<g:select id="service" name="service.id" from="${Service.list()}" optionKey="id" required="" value="${activityInstance?.service?.id}" class="many-to-one"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'dataFine', 'error')} ">
-	<label for="dataFine">
-		<g:message code="activity.dataFine.label" default="Data Fine" />
+<div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'endDate', 'error')} ">
+	<label for="endDate">
+		<g:message code="activity.endDate.label" default="End Date" />
 		
 	</label>
-	<g:datePicker name="dataFine" precision="day"  value="${activityInstance?.dataFine}" default="none" noSelection="['': '']" />
+	<g:datePicker name="endDate" precision="day"  value="${activityInstance?.endDate}" default="none" noSelection="['': '']" />
 </div>
 

@@ -30,7 +30,7 @@
 					
 						<th><g:message code="activity.service.label" default="Service" /></th>
 					
-						<g:sortableColumn property="dataFine" title="${message(code: 'activity.dataFine.label', default: 'Data Fine')}" />
+						<g:sortableColumn property="endDate" title="${message(code: 'activity.endDate.label', default: 'End Date')}" />
 					
 					</tr>
 				</thead>
@@ -44,7 +44,7 @@
 					
 						<td>${fieldValue(bean: activityInstance, field: "service")}</td>
 					
-						<td><g:formatDate date="${activityInstance.dataFine}" /></td>
+						<td><g:formatDate date="${activityInstance.endDate}" /></td>
 					
 					</tr>
 				</g:each>

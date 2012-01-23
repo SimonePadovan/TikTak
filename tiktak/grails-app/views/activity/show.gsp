@@ -50,11 +50,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${activityInstance?.dataFine}">
+				<g:if test="${activityInstance?.endDate}">
 				<li class="fieldcontain">
-					<span id="dataFine-label" class="property-label"><g:message code="activity.dataFine.label" default="Data Fine" /></span>
+					<span id="endDate-label" class="property-label"><g:message code="activity.endDate.label" default="Data Fine" /></span>
 					
-						<span class="property-value" aria-labelledby="dataFine-label"><g:formatDate date="${activityInstance?.dataFine}" /></span>
+						<span class="property-value" aria-labelledby="endDate-label"><g:formatDate date="${activityInstance?.endDate}" /></span>
 					
 				</li>
 				</g:if>

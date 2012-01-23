@@ -32,7 +32,7 @@
 					
 						<th><g:message code="project.service.label" default="Service" /></th>
 					
-						<g:sortableColumn property="dataFine" title="${message(code: 'project.dataFine.label', default: 'Data Fine')}" />
+						<g:sortableColumn property="endDate" title="${message(code: 'project.endDate.label', default: 'Data Fine')}" />
 					
 					</tr>
 				</thead>
@@ -48,7 +48,7 @@
 					
 						<td>${fieldValue(bean: projectInstance, field: "service")}</td>
 					
-						<td><g:formatDate date="${projectInstance.dataFine}" /></td>
+						<td><g:formatDate date="${projectInstance.endDate}" /></td>
 					
 					</tr>
 				</g:each>

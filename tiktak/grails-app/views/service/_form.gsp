@@ -25,11 +25,11 @@
 	<g:textField name="descrD" required="" value="${serviceInstance?.descrD}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: serviceInstance, field: 'dataFine', 'error')} ">
-	<label for="dataFine">
-		<g:message code="service.dataFine.label" default="Data Fine" />
+<div class="fieldcontain ${hasErrors(bean: serviceInstance, field: 'endDate', 'error')} ">
+	<label for="endDate">
+		<g:message code="service.endDate.label" default="Data Fine" />
 		
 	</label>
-	<g:datePicker name="dataFine" precision="day"  value="${serviceInstance?.dataFine}" default="none" noSelection="['': '']" />
+	<g:datePicker name="endDate" precision="day"  value="${serviceInstance?.endDate}" default="none" noSelection="['': '']" />
 </div>
 

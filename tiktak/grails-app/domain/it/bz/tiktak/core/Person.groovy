@@ -9,11 +9,18 @@ class Person extends User {
 
     static constraints = {
     }
-	
+
 	def getProjects(Date validOn) {
-		def projects = ProjectPerson.findAllByPerson(this).project		 
-		if (validOn)
-			projects = projects.findAll {!it.dataFine || it.dataFine > validOn}
+		def projects		 
+		if (validOn) {
+			projects = ProjectPerson.findAll {
+				person == this
+				endDate == null || endDate > validOn
+		    }.project
+			projects = projects.findAll {!it.endDate || it.endDate > validOn}
+		}	
+		else
+			projects = ProjectPerson.findAllByPerson(this).project
 		return projects  			  
 	}
 

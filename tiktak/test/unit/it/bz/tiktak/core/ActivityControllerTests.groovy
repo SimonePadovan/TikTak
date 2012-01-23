@@ -1,6 +1,5 @@
 package it.bz.tiktak.core
 
-
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */

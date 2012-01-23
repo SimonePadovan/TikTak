@@ -59,11 +59,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${projectInstance?.dataFine}">
+				<g:if test="${projectInstance?.endDate}">
 				<li class="fieldcontain">
-					<span id="dataFine-label" class="property-label"><g:message code="project.dataFine.label" default="Data Fine" /></span>
+					<span id="endDate-label" class="property-label"><g:message code="project.endDate.label" default="Data Fine" /></span>
 					
-						<span class="property-value" aria-labelledby="dataFine-label"><g:formatDate date="${projectInstance?.dataFine}" /></span>
+						<span class="property-value" aria-labelledby="endDate-label"><g:formatDate date="${projectInstance?.endDate}" /></span>
 					
 				</li>
 				</g:if>

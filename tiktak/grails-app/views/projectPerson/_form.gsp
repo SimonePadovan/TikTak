@@ -18,3 +18,12 @@
 	<g:select id="project" name="project.id" from="${Project.list()}" optionKey="id" required="" value="${projectPersonInstance?.project?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: projectPersonInstance, field: 'endDate', 'error')} ">
+	<label for="endDate">
+		<g:message code="projectPerson.endDate.label" default="End Date" />
+		
+	</label>
+	<g:datePicker name="endDate" precision="day"  value="${projectPersonInstance?.endDate}" default="none" noSelection="['': '']" />
+</div>
+
+

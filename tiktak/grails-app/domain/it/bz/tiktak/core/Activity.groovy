@@ -6,14 +6,14 @@ class Activity {
 
 	String descrI
 	String descrD
-	Date dataFine
 	Service service
+	Date endDate
 	
 	static constraints = {	
 	  descrI blank:false
       descrD blank:false
 	  service ()
-	  dataFine nullable:true
+	  endDate nullable:true
 	}
 		
 	String toString() { "${this.descrI}" }
