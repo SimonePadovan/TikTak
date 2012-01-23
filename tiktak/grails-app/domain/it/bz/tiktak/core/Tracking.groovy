@@ -29,7 +29,17 @@ class Tracking {
 		hours min:0.15d, max:MAX_HOURS_PER_DAY, validator: { value, self ->
 			boolean valid = true
 			
-			def totHoursDay = Tracking.executeQuery("select sum(e.hours) from Tracking as e where e.date = :date and e.person = :person", [date: self.date?.clearTime(), person: self.person])
+			def tCriteria = Tracking.createCriteria()
+			def totHoursDay = tCriteria.list() {
+				and {
+					eq("person", self.person)
+					eq("date", self.date?.clearTime())
+				}
+				projections {
+					sum('hours')
+				}
+			}			
+			//def totHoursDay = Tracking.executeQuery("select sum(e.hours) from Tracking as e where e.date = :date and e.person = :person", [date: self.date?.clearTime(), person: self.person])
 			if (totHoursDay[0] != null) {
 				def total = totHoursDay[0]
 				if (self.getPersistentValue('hours'))
