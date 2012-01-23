@@ -62,9 +62,9 @@
 				
 					<tr>
 					
-						<td>&nbsp;&nbsp;<g:link action="show" id="${myTrackingInstance.id}">${fieldValue(bean: myTrackingInstance, field: "project")}</g:link></td>
+						<td>&nbsp;&nbsp;<g:link action="show" id="${myTrackingInstance.id}">${fieldValue(bean: myTrackingInstance, field: "project.descr"+localeSuffix())}</g:link></td>
 					
-						<td>${fieldValue(bean: myTrackingInstance, field: "activity")}</td>
+						<td>${fieldValue(bean: myTrackingInstance, field: "activity.descr"+localeSuffix())}</td>
 					
 						<td class="alignright"><g:formatNumber number="${myTrackingInstance.hours}" format="0.00" /></td>
 						

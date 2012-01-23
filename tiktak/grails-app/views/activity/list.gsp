@@ -40,7 +40,7 @@
 					
 						<td><g:link action="show" id="${activityInstance.id}">${fieldValue(bean: activityInstance, field: "descrI")}</g:link></td>
 					
-						<td>${fieldValue(bean: activityInstance, field: "descrD")}</td>
+						<td>${fieldValue(bean: activityInstance, field: "descr"+localeSuffix())}</td>
 					
 						<td>${fieldValue(bean: activityInstance, field: "service")}</td>
 					
@@ -50,6 +50,7 @@
 				</g:each>
 				</tbody>
 			</table>
+			
 			<div class="pagination">
 				<g:paginate total="${activityInstanceTotal}" />
 			</div>

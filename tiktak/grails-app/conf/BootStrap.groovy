@@ -22,7 +22,7 @@ class BootStrap {
 		  def s5 = new Service(descrI: "Gestione dati", descrD: "Datenverwaltung", codice: "DATI").save()
 		  def s6 = new Service(descrI: "Referenza-Coordinamento", descrD: "Referenz-Koordinierung", codice: "COOR").save()
 			
-		  def p1 = new Project(descrI: "Sicop", descrD: "Sicop", codice: "SICOP", service: s1).save()
+		  def p1 = new Project(descrI: "Sicop ITA", descrD: "Sicop TED", codice: "SICOP", service: s1).save()
 		  def p2 = new Project(descrI: "Manutenztione applicazione x", descrD: "Manutenztione applicazione x", codice: "MANUT_PJX", service: s2).save()
 		  def p3 = new Project(descrI: "xxxxx", descrD: "xxxx", codice: "MANUT_PJX", service: s1).save()
 		  def p4 = new Project(descrI: "Progetto chiuso", descrD: "Progetto chiuso", codice: "CLOSED", endDate:new Date()-1, service: s2).save()
