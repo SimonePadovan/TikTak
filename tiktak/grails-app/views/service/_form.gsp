@@ -2,12 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: serviceInstance, field: 'codice', 'error')} ">
-	<label for="codice">
-		<g:message code="service.codice.label" default="Codice" />
+<div class="fieldcontain ${hasErrors(bean: serviceInstance, field: 'code', 'error')} ">
+	<label for="code">
+		<g:message code="service.code.label" default="Code" />
 		
 	</label>
-	<g:textField name="codice" maxlength="15" value="${serviceInstance?.codice}"/>
+	<g:textField name="code" maxlength="15" value="${serviceInstance?.code}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: serviceInstance, field: 'descrI', 'error')} required">

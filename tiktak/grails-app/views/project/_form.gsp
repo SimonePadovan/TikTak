@@ -7,7 +7,7 @@
 		<g:message code="project.code.label" default="Code" />
 		
 	</label>
-	<g:textField name="code" value="${projectInstance?.code}"/>
+	<g:textField name="code" maxlength="15" value="${projectInstance?.code}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'descrI', 'error')} required">

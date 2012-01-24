@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list service">
 			
-				<g:if test="${serviceInstance?.codice}">
+				<g:if test="${serviceInstance?.code}">
 				<li class="fieldcontain">
-					<span id="codice-label" class="property-label"><g:message code="service.codice.label" default="Codice" /></span>
+					<span id="code-label" class="property-label"><g:message code="service.code.label" default="Code" /></span>
 					
-						<span class="property-value" aria-labelledby="codice-label"><g:fieldValue bean="${serviceInstance}" field="codice"/></span>
+						<span class="property-value" aria-labelledby="code-label"><g:fieldValue bean="${serviceInstance}" field="code"/></span>
 					
 				</li>
 				</g:if>

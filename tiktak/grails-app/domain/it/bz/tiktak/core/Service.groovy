@@ -4,13 +4,13 @@ import java.util.Date;
 
 class Service {
 
-	String codice
+	String code
 	String descrI
 	String descrD
 	Date endDate
 	
 	static constraints = {
-	  codice unique:true, maxSize: 15
+	  code unique:true, maxSize: 15
 	  descrI blank:false, maxSize: 200
 	  descrD blank:false, maxSize: 200
 	  endDate nullable:true

@@ -16,17 +16,17 @@ class BootStrap {
     def init = { servletContext ->
 		environments {
 			development {
-			  def s1 = new Service(descrI: "Sviluppo nuovo SW", descrD: "Software produktion", codice: "SVIL").save()	
-			  def s2 = new Service(descrI: "Manutenzione SW", descrD: "Manutenzione SW", codice: "MANUT").save()
-			  def s3 = new Service(descrI: "Gestione economica contratti/licenze", descrD: "Basisbetreuung-Lizenzen - Sonst ", codice: "ECON").save()
-			  def s4 = new Service(descrI: "Gestione banche dati", descrD: "Datenbankverwaltung", codice: "DB").save()
-			  def s5 = new Service(descrI: "Gestione dati", descrD: "Datenverwaltung", codice: "DATI").save()
-			  def s6 = new Service(descrI: "Referenza-Coordinamento", descrD: "Referenz-Koordinierung", codice: "COOR").save()
+			  def s1 = new Service(descrI: "Sviluppo nuovo SW", descrD: "Software produktion", code: "SVIL").save()	
+			  def s2 = new Service(descrI: "Manutenzione SW", descrD: "Manutenzione SW", code: "MANUT").save()
+			  def s3 = new Service(descrI: "Gestione economica contratti/licenze", descrD: "Basisbetreuung-Lizenzen - Sonst ", code: "ECON").save()
+			  def s4 = new Service(descrI: "Gestione banche dati", descrD: "Datenbankverwaltung", code: "DB").save()
+			  def s5 = new Service(descrI: "Gestione dati", descrD: "Datenverwaltung", code: "DATI").save()
+			  def s6 = new Service(descrI: "Referenza-Coordinamento", descrD: "Referenz-Koordinierung", code: "COOR").save()
 				
-			  def p1 = new Project(descrI: "Sicop ITA", descrD: "Sicop TED", codice: "SICOP", service: s1).save()
-			  def p2 = new Project(descrI: "Manutenztione applicazione x", descrD: "Manutenztione applicazione x", codice: "MANUT_PJX", service: s2).save()
-			  def p3 = new Project(descrI: "xxxxx", descrD: "xxxx", codice: "MANUT_PJX", service: s1).save()
-			  def p4 = new Project(descrI: "Progetto chiuso", descrD: "Progetto chiuso", codice: "CLOSED", endDate:new Date()-1, service: s2).save()
+			  def p1 = new Project(descrI: "Sicop ITA", descrD: "Sicop TED", code: "SICOP", service: s1).save()
+			  def p2 = new Project(descrI: "Manutenztione applicazione x", descrD: "Manutenztione applicazione x", code: "MANUT_PJX", service: s2).save()
+			  def p3 = new Project(descrI: "xxxxx", descrD: "xxxx", code: "MANUT_PJX", service: s1).save()
+			  def p4 = new Project(descrI: "Progetto chiuso", descrD: "Progetto chiuso", code: "CLOSED", endDate:new Date()-1, service: s2).save()
 		
 			  def a1 = new Activity(descrI: "Analisi business", descrD: "Analisi business", service: s1).save()
 			  def a3 = new Activity(descrI: "Analisi", descrD: "Analyse", service: s2).save()
