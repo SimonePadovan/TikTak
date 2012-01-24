@@ -1,7 +1,5 @@
 <%@ page import="it.bz.tiktak.core.Tracking" %>
-<%@ page import="it.bz.tiktak.core.Project" %>
-<%@ page import="it.bz.tiktak.core.Person" %>
-<%@ page import="it.bz.tiktak.core.Activity" %>
+
 
 
 <div class="fieldcontain ${hasErrors(bean: trackingInstance, field: 'project', 'error')} required">
@@ -9,7 +7,7 @@
 		<g:message code="tracking.project.label" default="Project" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="project" name="project.id" from="${Project.list()}" optionKey="id" required="" value="${trackingInstance?.project?.id}" class="many-to-one"/>
+	<g:select id="project" name="project.id" from="${it.bz.tiktak.core.Project.list()}" optionKey="id" required="" value="${trackingInstance?.project?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: trackingInstance, field: 'activity', 'error')} required">
@@ -17,7 +15,7 @@
 		<g:message code="tracking.activity.label" default="Activity" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="activity" name="activity.id" from="${Activity.list()}" optionKey="id" required="" value="${trackingInstance?.activity?.id}" class="many-to-one"/>
+	<g:select id="activity" name="activity.id" from="${it.bz.tiktak.core.Activity.list()}" optionKey="id" required="" value="${trackingInstance?.activity?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: trackingInstance, field: 'hours', 'error')} required">
@@ -41,7 +39,7 @@
 		<g:message code="tracking.detail.label" default="Detail" />
 		
 	</label>
-	<g:textField name="detail" value="${trackingInstance?.detail}"/>
+	<g:textArea name="detail" cols="40" rows="5" maxlength="1000" value="${trackingInstance?.detail}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: trackingInstance, field: 'person', 'error')} required">
@@ -49,6 +47,6 @@
 		<g:message code="tracking.person.label" default="Person" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="person" name="person.id" from="${Person.list()}" optionKey="id" required="" value="${trackingInstance?.person?.id}" class="many-to-one"/>
+	<g:select id="person" name="person.id" from="${it.bz.tiktak.core.Person.list()}" optionKey="id" required="" value="${trackingInstance?.person?.id}" class="many-to-one"/>
 </div>
 

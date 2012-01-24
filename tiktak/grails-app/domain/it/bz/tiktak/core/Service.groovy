@@ -10,9 +10,9 @@ class Service {
 	Date endDate
 	
 	static constraints = {
-	  codice unique:true
-	  descrI blank:false
-	  descrD blank:false
+	  codice unique:true, maxSize: 15
+	  descrI blank:false, maxSize: 200
+	  descrD blank:false, maxSize: 200
 	  endDate nullable:true
 	}
 	

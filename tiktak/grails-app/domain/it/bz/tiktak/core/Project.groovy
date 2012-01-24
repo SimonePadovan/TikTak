@@ -10,8 +10,8 @@ class Project {
 	
 	static constraints = {
 	  code unique:true 	
-	  descrI blank:false
-      descrD blank:false
+	  descrI blank:false, maxSize: 200
+      descrD blank:false, maxSize: 200
 	  service()
 	  endDate nullable:true
 	}

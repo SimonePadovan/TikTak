@@ -24,7 +24,7 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="code" title="${message(code: 'project.code.label', default: 'code')}" />
+						<g:sortableColumn property="code" title="${message(code: 'project.code.label', default: 'Code')}" />
 					
 						<g:sortableColumn property="descrI" title="${message(code: 'project.descrI.label', default: 'Descr I')}" />
 					
@@ -32,7 +32,7 @@
 					
 						<th><g:message code="project.service.label" default="Service" /></th>
 					
-						<g:sortableColumn property="endDate" title="${message(code: 'project.endDate.label', default: 'Data Fine')}" />
+						<g:sortableColumn property="endDate" title="${message(code: 'project.endDate.label', default: 'End Date')}" />
 					
 					</tr>
 				</thead>

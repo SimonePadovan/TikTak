@@ -27,7 +27,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form method="post" autocomplete="off">
+			<g:form method="post" >
 				<g:hiddenField name="id" value="${activityInstance?.id}" />
 				<g:hiddenField name="version" value="${activityInstance?.version}" />
 				<fieldset class="form">

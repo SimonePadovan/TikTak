@@ -1,6 +1,5 @@
 
 <%@ page import="it.bz.tiktak.core.Service" %>
-
 <!doctype html>
 <html>
 	<head>
@@ -31,7 +30,7 @@
 					
 						<g:sortableColumn property="descrD" title="${message(code: 'service.descrD.label', default: 'Descr D')}" />
 					
-						<g:sortableColumn property="endDate" title="${message(code: 'service.endDate.label', default: 'Data Fine')}" />
+						<g:sortableColumn property="endDate" title="${message(code: 'service.endDate.label', default: 'End Date')}" />
 					
 					</tr>
 				</thead>

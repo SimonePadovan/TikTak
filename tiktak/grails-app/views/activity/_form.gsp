@@ -1,12 +1,13 @@
 <%@ page import="it.bz.tiktak.core.Activity" %>
-<%@ page import="it.bz.tiktak.core.Service" %>
+
+
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'descrI', 'error')} required">
 	<label for="descrI">
 		<g:message code="activity.descrI.label" default="Descr I" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="descrI" required="" value="${activityInstance?.descrI}"/>
+	<g:textField name="descrI" maxlength="200" required="" value="${activityInstance?.descrI}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'descrD', 'error')} required">
@@ -14,7 +15,7 @@
 		<g:message code="activity.descrD.label" default="Descr D" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="descrD" required="" value="${activityInstance?.descrD}"/>
+	<g:textField name="descrD" maxlength="200" required="" value="${activityInstance?.descrD}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'service', 'error')} required">
@@ -22,7 +23,7 @@
 		<g:message code="activity.service.label" default="Service" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="service" name="service.id" from="${Service.list()}" optionKey="id" required="" value="${activityInstance?.service?.id}" class="many-to-one"/>
+	<g:select id="service" name="service.id" from="${it.bz.tiktak.core.Service.list()}" optionKey="id" required="" value="${activityInstance?.service?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: activityInstance, field: 'endDate', 'error')} ">

@@ -52,7 +52,7 @@
 			
 				<g:if test="${serviceInstance?.endDate}">
 				<li class="fieldcontain">
-					<span id="endDate-label" class="property-label"><g:message code="service.endDate.label" default="Data Fine" /></span>
+					<span id="endDate-label" class="property-label"><g:message code="service.endDate.label" default="End Date" /></span>
 					
 						<span class="property-value" aria-labelledby="endDate-label"><g:formatDate date="${serviceInstance?.endDate}" /></span>
 					

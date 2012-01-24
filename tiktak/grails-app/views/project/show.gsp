@@ -25,7 +25,7 @@
 			
 				<g:if test="${projectInstance?.code}">
 				<li class="fieldcontain">
-					<span id="code-label" class="property-label"><g:message code="project.code.label" default="code" /></span>
+					<span id="code-label" class="property-label"><g:message code="project.code.label" default="Code" /></span>
 					
 						<span class="property-value" aria-labelledby="code-label"><g:fieldValue bean="${projectInstance}" field="code"/></span>
 					
@@ -61,7 +61,7 @@
 			
 				<g:if test="${projectInstance?.endDate}">
 				<li class="fieldcontain">
-					<span id="endDate-label" class="property-label"><g:message code="project.endDate.label" default="Data Fine" /></span>
+					<span id="endDate-label" class="property-label"><g:message code="project.endDate.label" default="End Date" /></span>
 					
 						<span class="property-value" aria-labelledby="endDate-label"><g:formatDate date="${projectInstance?.endDate}" /></span>
 					

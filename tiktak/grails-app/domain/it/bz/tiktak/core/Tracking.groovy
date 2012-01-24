@@ -53,7 +53,7 @@ class Tracking {
   		    return true  
 		}
 		date()
-		detail nullable:true
+		detail nullable:true, maxSize: 1000
 	}
 
 	static mapping = {

@@ -52,7 +52,7 @@
 			
 				<g:if test="${activityInstance?.endDate}">
 				<li class="fieldcontain">
-					<span id="endDate-label" class="property-label"><g:message code="activity.endDate.label" default="Data Fine" /></span>
+					<span id="endDate-label" class="property-label"><g:message code="activity.endDate.label" default="End Date" /></span>
 					
 						<span class="property-value" aria-labelledby="endDate-label"><g:formatDate date="${activityInstance?.endDate}" /></span>
 					

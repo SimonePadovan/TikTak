@@ -1,9 +1,10 @@
 <%@ page import="it.bz.tiktak.core.Project" %>
-<%@ page import="it.bz.tiktak.core.Service" %>
+
+
 
 <div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'code', 'error')} ">
 	<label for="code">
-		<g:message code="project.code.label" default="code" />
+		<g:message code="project.code.label" default="Code" />
 		
 	</label>
 	<g:textField name="code" value="${projectInstance?.code}"/>
@@ -14,7 +15,7 @@
 		<g:message code="project.descrI.label" default="Descr I" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="descrI" required="" value="${projectInstance?.descrI}"/>
+	<g:textField name="descrI" maxlength="200" required="" value="${projectInstance?.descrI}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'descrD', 'error')} required">
@@ -22,7 +23,7 @@
 		<g:message code="project.descrD.label" default="Descr D" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="descrD" required="" value="${projectInstance?.descrD}"/>
+	<g:textField name="descrD" maxlength="200" required="" value="${projectInstance?.descrD}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'service', 'error')} required">
@@ -30,12 +31,12 @@
 		<g:message code="project.service.label" default="Service" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="service" name="service.id" from="${Service.list()}" optionKey="id" required="" value="${projectInstance?.service?.id}" class="many-to-one"/>
+	<g:select id="service" name="service.id" from="${it.bz.tiktak.core.Service.list()}" optionKey="id" required="" value="${projectInstance?.service?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'endDate', 'error')} ">
 	<label for="endDate">
-		<g:message code="project.endDate.label" default="Data Fine" />
+		<g:message code="project.endDate.label" default="End Date" />
 		
 	</label>
 	<g:datePicker name="endDate" precision="day"  value="${projectInstance?.endDate}" default="none" noSelection="['': '']" />
