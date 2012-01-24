@@ -55,7 +55,7 @@ $(document).ready(function()
 	<label for="detail">
 		<g:message code="myTracking.detail.label" default="Detail" />		
 	</label>
-	<g:textArea name="detail" value="${myTrackingInstance?.detail}" rows="2"/>
+	<g:textArea name="detail"  cols="40"  value="${myTrackingInstance?.detail}" rows="2"  maxlength="1000" />
 </div>
 
 
