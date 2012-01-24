@@ -1,12 +1,12 @@
 <%@ page import="it.bz.tiktak.core.Project" %>
 <%@ page import="it.bz.tiktak.core.Service" %>
 
-<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'codice', 'error')} ">
-	<label for="codice">
-		<g:message code="project.codice.label" default="Codice" />
+<div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'code', 'error')} ">
+	<label for="code">
+		<g:message code="project.code.label" default="code" />
 		
 	</label>
-	<g:textField name="codice" value="${projectInstance?.codice}"/>
+	<g:textField name="code" value="${projectInstance?.code}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: projectInstance, field: 'descrI', 'error')} required">

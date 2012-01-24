@@ -2,14 +2,14 @@ package it.bz.tiktak.core
 
 class Project {
 
-	String codice
+	String code
 	String descrI
 	String descrD
 	Service service
 	Date endDate
 	
 	static constraints = {
-	  codice unique:true 	
+	  code unique:true 	
 	  descrI blank:false
       descrD blank:false
 	  service()
