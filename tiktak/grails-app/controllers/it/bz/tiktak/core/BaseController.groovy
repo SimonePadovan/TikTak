@@ -190,7 +190,7 @@ abstract class BaseController {
 		}
 	}
 
-	protected def setProps(instance, p)
+	protected void setProps(instance, p)
 	{
 		instance.properties = p
 	}

@@ -75,7 +75,7 @@ class MyTrackingController extends BaseController {
 		return instance
 	}
 
-	protected def setProps(instance, p)
+	protected void setProps(instance, p)
 	{
 		super.setProps(instance, p)
 		
