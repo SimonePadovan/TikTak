@@ -2,7 +2,7 @@
 <%@ page import="it.bz.tiktak.core.Project" %>
 <%@ page import="it.bz.tiktak.core.Activity" %>
 
-<script language="javascript">
+<g:javascript>
 //Associa automaticamente agli input type=date il calendario jQueryUi 
 $(document).ready(function()
 	    {
@@ -11,7 +11,7 @@ $(document).ready(function()
 	              showButtonPanel: true });          
 	      });
 	    })
-</script>	    
+</g:javascript>	    
 
 <div class="fieldcontain ${hasErrors(bean: myTrackingInstance, field: 'project', 'error')} required">
 	<label for="project">
@@ -43,11 +43,11 @@ $(document).ready(function()
 		<g:message code="myTracking.date.label" default="Date" />
 		<span class="required-indicator">*</span>
 	</label>
-	<script language="javascript">
+	<g:javascript>
 	function updateActivity( ) {
 		document.getElementById('project').onchange();  
     }
-	</script>
+	</g:javascript>
 	<g:field type="date" name="date" onchange="${remoteFunction(onSuccess:"updateActivity()", action: 'refreshProjects', update: 'project', params:'\'id=\'+document.getElementById(\'project\').value+\'&validOn=\'+this.value+\'&activityId=\'+document.getElementById(\'activity\').value')}"  value="${formatDate(date:myTrackingInstance?.date)}"  />
 </div>
 
