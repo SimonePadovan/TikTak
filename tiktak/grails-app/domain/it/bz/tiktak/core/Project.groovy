@@ -8,8 +8,10 @@ class Project {
 	Service service
 	Date endDate
 	
+	static hasMany = [ projectPersons: ProjectPerson]
+	
 	static constraints = {
-	  code unique:true, maxSize: 15
+	  code unique:true, maxSize: 15, blank:false
 	  descrI blank:false, maxSize: 200
       descrD blank:false, maxSize: 200
 	  service()

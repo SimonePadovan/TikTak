@@ -59,6 +59,28 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${serviceInstance?.activities}">
+				<li class="fieldcontain">
+					<span id="activities-label" class="property-label"><g:message code="service.activities.label" default="Activities" /></span>
+					
+						<g:each in="${serviceInstance.activities}" var="a">
+						<span class="property-value" aria-labelledby="activities-label"><g:link controller="activity" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${serviceInstance?.projects}">
+				<li class="fieldcontain">
+					<span id="projects-label" class="property-label"><g:message code="service.projects.label" default="Projects" /></span>
+					
+						<g:each in="${serviceInstance.projects}" var="p">
+						<span class="property-value" aria-labelledby="projects-label"><g:link controller="project" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

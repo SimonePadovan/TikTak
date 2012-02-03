@@ -68,6 +68,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${projectInstance?.projectPersons}">
+				<li class="fieldcontain">
+					<span id="projectPersons-label" class="property-label"><g:message code="project.projectPersons.label" default="Project Persons" /></span>
+					
+						<g:each in="${projectInstance.projectPersons}" var="p">
+						<span class="property-value" aria-labelledby="projectPersons-label"><g:link controller="projectPerson" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">
