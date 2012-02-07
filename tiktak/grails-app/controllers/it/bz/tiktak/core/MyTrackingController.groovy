@@ -1,5 +1,6 @@
 package it.bz.tiktak.core
 
+import it.bz.organization.core.Person
 import grails.converters.*
 import grails.plugins.springsecurity.Secured
 
@@ -27,6 +28,7 @@ class MyTrackingController extends BaseController {
 	
 	protected def doList(params) {
 		def user = Person.get(springSecurityService.principal.id)
+		
 		if (params.from) {
 			def from = params.from
 			def to =  params.to
@@ -43,6 +45,8 @@ class MyTrackingController extends BaseController {
 		}
 		else
 			Tracking.findAllByPerson(user, params)
+			
+			
 	}
 		
 	def list() {

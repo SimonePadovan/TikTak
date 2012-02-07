@@ -124,9 +124,9 @@ grails.plugin.cloudfoundry.password = 'Samba123'
 //grails.plugins.springsecurity.useBasicAuth = true
 //grails.plugins.springsecurity.basic.realmName = "tiktak.com"
 
-grails.plugins.springsecurity.userLookup.userDomainClassName = 'it.bz.tiktak.security.User'
-grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'it.bz.tiktak.security.UserRole'
-grails.plugins.springsecurity.authority.className = 'it.bz.tiktak.security.Role'
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'it.bz.organization.security.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'it.bz.organization.security.UserRole'
+grails.plugins.springsecurity.authority.className = 'it.bz.organization.security.Role'
 
 grails.gorm.default.constraints = {
 	open (validator : {value, self ->

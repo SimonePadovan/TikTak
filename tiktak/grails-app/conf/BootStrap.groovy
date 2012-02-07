@@ -1,19 +1,33 @@
+import java.util.Date;
+
 import grails.converters.*
-import grails.util.Environment
 import it.bz.security.*
 import it.bz.tiktak.core.Activity
-import it.bz.tiktak.core.Person
 import it.bz.tiktak.core.Project
 import it.bz.tiktak.core.ProjectPerson
 import it.bz.tiktak.core.Service
 import it.bz.tiktak.core.Tracking
-import it.bz.tiktak.security.Role
-import it.bz.tiktak.security.UserRole
+import it.bz.organization.core.Organization
+import it.bz.organization.core.Person
+import it.bz.organization.security.Role
+import it.bz.organization.security.UserRole
 import it.bz.timetracker.*
 
 class BootStrap {
 
     def init = { servletContext ->
+		
+		// MetaClass: add new method to Person
+		Person.metaClass.getProjects = {Date validOn ->
+			def pp = ProjectPerson.findAllByPerson(delegate)
+			if (validOn)
+			   pp = pp.findAll {!it.endDate || it.endDate > validOn}
+			
+			if (pp)
+			  return pp.project.findAll {!it.endDate || it.endDate > validOn}
+			return  null  
+		}
+				
 		environments {
 			development {
 			  def s1 = new Service(descrI: "Sviluppo nuovo SW", descrD: "Software produktion", code: "SVIL").save()	
@@ -36,14 +50,16 @@ class BootStrap {
 			  new Activity(descrI: "Sviuppo", descrD: "Entwicklung", service: s2).save()
 		      new Activity(descrI: "PM", descrD: "PM", service: s1).save()
 			  	  	    
+			  def org = new Organization(descr:'uffcio xy', code:'19.5').save()
+			  
 			  // Security
 			  // Roles
 		  	  def adminRole = new Role(authority: 'ROLE_ADMIN', description: 'Administrator').save()
 			  def userRole = new Role(authority: 'ROLE_USER', description: 'User').save()
 			  
 			  // Users
-			  def adminUser = new Person(lastName: 'Padovan', firstName:'Simone', username: 'admin', password: 'password',  enabled: true).save()
-			  def simpleUser = new Person(lastName: 'Pinco', firstName:'Pallo', username: 'user', password: 'password',  enabled: true).save()
+			  def adminUser = new Person(lastName: 'Padovan', firstName:'Simone', username: 'admin', password: 'password',  enabled: true, organization:org).save()
+			  def simpleUser = new Person(lastName: 'Pinco', firstName:'Pallo', username: 'user', password: 'password',  enabled: true, organization:org).save()
 		
 			  // UserRoles
 			  new UserRole(user:adminUser, role:adminRole).save()

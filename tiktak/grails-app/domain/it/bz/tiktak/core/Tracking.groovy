@@ -1,5 +1,7 @@
 package it.bz.tiktak.core
 
+import it.bz.organization.core.Person
+
 class Tracking {
 
 	static final double MAX_HOURS_PER_DAY = 12d

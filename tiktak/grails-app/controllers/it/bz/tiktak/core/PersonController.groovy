@@ -1,5 +1,6 @@
 package it.bz.tiktak.core
 
+import it.bz.organization.core.Person
 import grails.converters.*
 import grails.plugins.springsecurity.Secured
 

@@ -44,3 +44,4 @@ grails.project.dependency.resolution = {
         build ":tomcat:$grailsVersion"
     }
 }
+grails.plugin.location.organization = "C:/springsource/workspace/organization"
