@@ -1,6 +1,6 @@
 <%@ page import="it.bz.tiktak.core.ProjectPerson" %>
 <%@ page import="it.bz.tiktak.core.Project" %>
-<%@ page import="it.bz.tiktak.core.Person" %>
+<%@ page import="it.bz.organization.core.Person" %>
 
 <div class="fieldcontain ${hasErrors(bean: projectPersonInstance, field: 'person', 'error')} required">
 	<label for="person">
